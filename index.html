@@ -1,17 +1,165 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
     <title>Secure Browser</title>
-    <meta http-equiv="refresh" content="0; url=http://localhost:5000" />
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .container {
+        text-align: center;
+        max-width: 600px;
+        padding: 2rem;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        font-weight: 700;
+      }
+      .subtitle {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+      }
+      .features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
+      }
+      .feature {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 1.5rem;
+        border-radius: 12px;
+        backdrop-filter: blur(5px);
+      }
+      .feature h3 {
+        margin: 0 0 0.5rem 0;
+        font-size: 1.1rem;
+      }
+      .feature p {
+        margin: 0;
+        opacity: 0.8;
+        font-size: 0.9rem;
+      }
+      .tech-stack {
+        margin: 2rem 0;
+        padding: 1.5rem;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+      }
+      .tech-stack h3 {
+        margin: 0 0 1rem 0;
+      }
+      .tech-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        justify-content: center;
+      }
+      .tech-tag {
+        background: rgba(255, 255, 255, 0.2);
+        padding: 0.3rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 500;
+      }
+      .cta {
+        margin-top: 2rem;
+      }
+      .btn {
+        display: inline-block;
+        padding: 12px 24px;
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+      .btn:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: translateY(-2px);
+      }
+      @media (max-width: 768px) {
+        .container {
+          margin: 1rem;
+          padding: 1.5rem;
+        }
+        h1 {
+          font-size: 2rem;
+        }
+        .features {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
   </head>
   <body>
-    <div style="text-align: center; padding: 50px; font-family: Arial, sans-serif;">
-      <h1>Secure Browser</h1>
-      <p>Redirecting to the browser application...</p>
-      <p>If you are not redirected automatically, <a href="http://localhost:5000">click here</a>.</p>
+    <div class="container">
+      <h1>🛡️ Secure Browser</h1>
+      <p class="subtitle">A modern web browser application with advanced security features</p>
+      
+      <div class="features">
+        <div class="feature">
+          <h3>🔒 Security First</h3>
+          <p>Built-in ad blocker, tracker protection, and malware detection</p>
+        </div>
+        <div class="feature">
+          <h3>📱 Modern UI</h3>
+          <p>Responsive design with tabbed browsing and intuitive navigation</p>
+        </div>
+        <div class="feature">
+          <h3>📚 Smart Features</h3>
+          <p>Bookmark management, browsing history, and user authentication</p>
+        </div>
+        <div class="feature">
+          <h3>⚡ Fast & Reliable</h3>
+          <p>Built with React, TypeScript, and modern web technologies</p>
+        </div>
+      </div>
+
+      <div class="tech-stack">
+        <h3>🛠️ Built With</h3>
+        <div class="tech-list">
+          <span class="tech-tag">React 18</span>
+          <span class="tech-tag">TypeScript</span>
+          <span class="tech-tag">Express.js</span>
+          <span class="tech-tag">PostgreSQL</span>
+          <span class="tech-tag">Tailwind CSS</span>
+          <span class="tech-tag">Radix UI</span>
+          <span class="tech-tag">Drizzle ORM</span>
+          <span class="tech-tag">Passport.js</span>
+        </div>
+      </div>
+
+      <div class="cta">
+        <a href="https://replit.com/@username/secure-browser" class="btn">
+          🚀 Try Live Demo on Replit
+        </a>
+      </div>
+      
+      <p style="margin-top: 2rem; opacity: 0.7; font-size: 0.9rem;">
+        This is a demonstration project showcasing modern web browser development.
+        <br>
+        Built for educational and development purposes.
+      </p>
     </div>
   </body>
 </html>
+
