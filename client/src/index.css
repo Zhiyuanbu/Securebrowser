@@ -1,0 +1,207 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(248, 39%, 99%);
+  --foreground: hsl(223, 84%, 12%);
+  --muted: hsl(240, 20%, 96%);
+  --muted-foreground: hsl(215, 16%, 46%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(223, 84%, 12%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(223, 84%, 12%);
+  --border: hsl(220, 13%, 91%);
+  --input: hsl(220, 13%, 91%);
+  --primary: hsl(217, 91%, 54%);
+  --primary-foreground: hsl(222, 84%, 99%);
+  --secondary: hsl(240, 20%, 96%);
+  --secondary-foreground: hsl(224, 71%, 4%);
+  --accent: hsl(240, 20%, 96%);
+  --accent-foreground: hsl(224, 71%, 4%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(60, 9%, 98%);
+  --ring: hsl(223, 84%, 12%);
+  --radius: 0.5rem;
+
+  /* Browser specific colors */
+  --browser-bg: hsl(248, 39%, 99%);
+  --browser-dark: hsl(223, 84%, 12%);
+  --browser-medium: hsl(215, 25%, 32%);
+  --browser-light: hsl(215, 16%, 46%);
+  --browser-blue: hsl(217, 91%, 54%);
+  --browser-green: hsl(158, 64%, 52%);
+  --browser-red: hsl(0, 84%, 60%);
+  --browser-yellow: hsl(43, 96%, 56%);
+}
+
+.dark {
+  --background: hsl(240, 10%, 4%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 4%, 16%);
+  --muted-foreground: hsl(240, 5%, 65%);
+  --popover: hsl(240, 10%, 4%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 4%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 4%, 16%);
+  --input: hsl(240, 4%, 16%);
+  --primary: hsl(217, 91%, 54%);
+  --primary-foreground: hsl(222, 84%, 99%);
+  --secondary: hsl(240, 4%, 16%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 4%, 16%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 63%, 31%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 5%, 84%);
+
+  /* Browser specific colors for dark mode */
+  --browser-bg: hsl(240, 10%, 4%);
+  --browser-dark: hsl(0, 0%, 98%);
+  --browser-medium: hsl(240, 5%, 65%);
+  --browser-light: hsl(240, 4%, 46%);
+  --browser-blue: hsl(217, 91%, 54%);
+  --browser-green: hsl(158, 64%, 52%);
+  --browser-red: hsl(0, 84%, 60%);
+  --browser-yellow: hsl(43, 96%, 56%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .browser-window {
+    @apply min-h-screen;
+    background-color: var(--browser-bg);
+  }
+
+  .browser-title-bar {
+    @apply bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 px-4 py-2 flex items-center justify-between;
+  }
+
+  .browser-tab {
+    @apply flex items-center border-r border-gray-200 dark:border-gray-700 px-4 py-2 max-w-xs min-w-0 hover:bg-gray-50 dark:hover:bg-gray-800 cursor-pointer;
+  }
+
+  .browser-tab.active {
+    @apply bg-white dark:bg-gray-900;
+  }
+
+  .browser-tab:not(.active) {
+    background-color: var(--browser-bg);
+  }
+
+  .browser-nav-bar {
+    @apply bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 px-4 py-3;
+  }
+
+  .browser-address-bar {
+    @apply flex-1 flex items-center border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 focus-within:border-blue-500 focus-within:ring-1 focus-within:ring-blue-500;
+    background-color: var(--browser-bg);
+  }
+
+  .browser-bookmark-bar {
+    @apply bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 px-4 py-2;
+  }
+
+  .browser-status-bar {
+    @apply bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 px-4 py-2 flex items-center justify-between text-xs;
+    color: var(--browser-light);
+  }
+
+  .security-indicator {
+    @apply flex items-center space-x-1;
+  }
+
+  .security-indicator.secure {
+    color: var(--browser-green);
+  }
+
+  .security-indicator.warning {
+    color: var(--browser-yellow);
+  }
+
+  .security-indicator.danger {
+    color: var(--browser-red);
+  }
+}
+
+@layer utilities {
+  .mobile-layout .hidden-mobile {
+    display: none !important;
+  }
+
+  .mobile-layout .bookmark-bar {
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .mobile-layout .bookmark-bar::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    .address-bar-container {
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .tab-container {
+      min-width: 120px;
+    }
+
+    .browser-address-bar input {
+      font-size: 16px; /* Prevents zoom on iOS */
+      -webkit-appearance: none;
+      border-radius: 0;
+    }
+
+    /* Fix mobile keyboard handling */
+    input[type="url"], input[type="text"], input[type="search"] {
+      font-size: 16px !important; /* Prevents iOS zoom */
+      -webkit-appearance: none;
+      -webkit-border-radius: 0;
+    }
+
+    /* Ensure space key works on mobile */
+    input:focus {
+      -webkit-user-select: text;
+      user-select: text;
+    }
+  }
+
+  @keyframes loading-pulse {
+    0% { width: 0%; }
+    50% { width: 70%; }
+    100% { width: 100%; }
+  }
+
+  .loading-active {
+    animation: loading-pulse 2s ease-in-out infinite;
+  }
+
+  /* Browser iframe styles */
+  .browser-content iframe {
+    width: 100%;
+    height: calc(100vh - 140px); /* Subtract header height */
+    min-height: 600px;
+    border: none;
+    background: white;
+  }
+
+  /* Full height container for browser content */
+  .browser-content {
+    height: calc(100vh - 140px);
+    min-height: 600px;
+    overflow: hidden;
+  }
+}
